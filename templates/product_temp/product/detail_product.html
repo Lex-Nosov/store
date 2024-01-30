@@ -1,0 +1,76 @@
+{% extends 'product_temp/base.html' %}
+{% block title %}
+Товары
+{% endblock %}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="col detailed-description d-flex">
+            <div>
+                <img src="{{ object.image.url }}" alt="image" class="image-detailed">
+            </div>
+            <div class="d-flex items-align-center justify-content-center">
+                <form>
+                    <p>{{ object.name }}</p>
+                    <p>Цена:{{ object.price }}</p>
+                    <p>{{ object.description }}</p>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                            type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Характеристики
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                            type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Обзор
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                     tabindex="0">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Общие характеристики</li>
+                        <li class="list-group-item">Страна производства {{ object.characteristics.country_manufacture}}</li>
+                        <li class="list-group-item">Срок службы товара {{ object.characteristics.product_life }}</li>
+                        <li class="list-group-item">Операционная система {{ object.characteristics.operating_system }}</li>
+                        <li class="list-group-item">Размеры {{ object.characteristics.weight }}</li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Память и процессор</li>
+                        <li class="list-group-item">Процессор {{ object.characteristics.processor }}</li>
+                        <li class="list-group-item">Количество ядер процессора {{ object.characteristics.number_processor_cores }}
+                        </li>
+                        <li class="list-group-item">Объем оперативной памяти {{ object.characteristics.ram }}
+                        </li>
+                        <li class="list-group-item">Встроенный накопитель {{ object.characteristics.integrated }}
+                        </li>
+                        <li class="list-group-item">
+                            Объем встроенной памяти {{ object.characteristics.internal_memory }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                     tabindex="0">
+                    <ul class="list-group list-group-flush">
+                        {% for item in object.overview_set.all.values %}
+                             <li class="list-group-item">
+                            <strong>{{ item.first_title }}</strong><br>
+                            {{ item.first_description }}<br>
+                            </li>
+                            <li class="list-group-item">
+                            <strong>{{ item.second_title }}</strong><br>
+                            {{ item.second_description }}
+                            </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

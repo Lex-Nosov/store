@@ -1,0 +1,47 @@
+{% extends 'cart_temp/base.html' %}
+{% block title %}
+Корзина покупок
+{% endblock title%}
+{% block content %}
+<h1>Ваша корзина</h1>
+<div class="row d-flex">
+    <div class="col shopping-cart-container">
+        {% for item in cart %}
+        {% with product=item.product %}
+        <div class="card card-container">
+            <div class="card-body d-flex justify-space-between">
+                <img src="{{ product.image.url }}" alt="" class="card-img">
+                <div class="col-6 card-text">
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.description_for_cart }}</p>
+                    <p>{{ product.price }} ₽</p>
+                    <div class="quantity">
+                        <button class="plus-btn" type="button" name="button"></button>
+                        <input type="text" name="name" value="1">
+                        <button class="minus-btn" type="button" name="button"></button>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <form action="{% url 'remove_cart' product.id %}">
+                        <button class="btn btn-danger" type="submit">убрать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endwith %}
+        {% endfor %}
+        <div class="col">
+            <div class="d-flex justify-content-end">
+                {% if cart %}
+                <form action="{% url 'create_order' %}">
+                    <button class="btn btn-primary" type="submit">Оформить</button>
+                </form>
+                {% else %}
+                <p>Корзина пуста</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

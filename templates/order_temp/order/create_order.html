@@ -1,0 +1,27 @@
+{% extends 'order_temp/base.html' %}
+{% block title %}
+Создание заказа
+{% endblock title %}
+{% block content %}
+
+<div class="row flex-column align-items-center">
+
+    <form method="post" name="post_form" novalidate>{% csrf_token %}
+
+        <div class="col-3">
+
+            <div class="mb-3">
+                {{form.as_p}}
+            </div>
+
+        </div>
+        
+        <button class="button" type="submit">Купить</button>
+
+    </form>
+
+</div>
+
+{% endblock content %}
+{% block footer %}
+{% endblock footer %}

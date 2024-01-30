@@ -1,0 +1,36 @@
+{% extends 'order_temp/base.html' %}
+{% block title %}
+Заказы
+{% endblock title %}
+{% block content %}
+{% for order in object_list %}
+<div class="row d-flex">
+    <div class="col card text-center">
+        <div class="col card-title d-flex flex-row">
+            <h5>Заказ №{{ order.order_number }} от {{ order.create_at }}</h5>
+            <p>Имя клиента:{{ order.first_name }}{{ order.second_name }}</p>
+        </div>
+        <div class="card-body">
+            {% for item in order.orderitems_set.all %}
+            <div class="d-flex flex-row">
+                <div>
+                    <img class="card-img" src="{{ item.items.image.url }}" alt="">
+                </div>
+                <div>
+                    <span>{{ item.items }}</span>
+                    <br>
+                    <span>{{ item.items.description_for_cart }}</span>
+                    <span></span>
+                </div>
+            </div>
+            {% endfor %}
+            <div>
+                <form action="{% url 'delete_order' order.order_number %}" method="post">{% csrf_token %}
+                    <button class="btn btn-outline-danger" type="submit">Отменить заказ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'order_temp/base.html' %}
+{% block title %}
+Заказ отменен
+{% endblock title %}
+{% block header %}
+{% endblock header %}
+{% block section %}
+<div>
+    <H6>Ваш заказ отменен</H6>
+</div>
+<div>
+    <h3>Возвращайтесь к нам еще</h3>
+</div>
+<div class="btn-group">
+    <form method="post" action="main">
+        {{ order.order_number }}
+        <button type="submit" class="button">На главную</button>
+    </form>
+</div>
+{% endblock section %}
+{% block footer %}
+{% endblock footer %}

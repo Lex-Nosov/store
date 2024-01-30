@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #f9f9fb;
+}
+
+h3 {
+  background: #fff;
+  color: #3498db;
+  font-size: 36px;
+  line-height: 100px;
+  margin: 10px;
+  padding: 2%;
+  position: relative;
+  text-align: center;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+.card-main {
+    background-color: #f9f9fb;
+    min-height: 430px;
+    width: 18rem;
+}
+
+.card-product-all {
+    min-height: 600px;
+}
+
+.title-text {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-detailed {
+    width: 70%;
+    border: 1px solid;
+    border-color: grey;
+    border-radius: 3%;
+}
+
+.shopping-cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 1px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  margin-right: 60px;
+}
+.quantity input {
+  appearance: auto;
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  color: #43484D;
+  font-weight: 300;
+}
+
+.minus-btn {
+  background-image: url('../img/minus.png');
+  background-position: center;
+}
+
+.plus-btn {
+  background-image: url('../img/plus.png');
+  background-position: center;
+}
+
+
+.plus-btn, .minus-btn {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus,
+input:focus {
+  outline:0;
+}
+
+.card-container {
+    width: 70%;
+    height: 250px;
+    margin: 10px;
+}
+
+.card-img {
+    width: 150px;
+    height: 150px;
+}
+
+.card-href {
+    text-decoration: none;
+    color: black;
+
+}
+
+.carousel {
+  height: auto !important;
+  width: auto;
+  [btn-outline-info] {
+    bs-btn-hover-color: white;
+}}
+
+.carousel-inner img {
+  object-fit: contain;
+  vertical-align: middle;
+  border-style: none;
+  height: 70vh;
+}
+
+.main {
+  font-family:Arial;
+  width:500px;
+  display:block;
+  margin:0 auto;
+}
+
+.action {
+  display:block;
+  margin:100px auto;
+  width:100%;
+  text-align:center;
+}
+
+.action a {
+  display:inline-block;
+  padding:5px 10px;
+  background:#f30;
+  color:#fff;
+  text-decoration:none;
+}
+
+.action a:hover {
+  background:#000;
+}
+
+.content {
+  margin: auto;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.carousel-text-title {
+    color: black;
+    font-size: 60px;
+}
+
+.carousel-text-p {
+    color: black;
+}
+
+.carousel-indicators {
+    [data-bs-target] {
+    background-color: #015367;
+    }
+}
+
+.footer-container {
+    background-color: blue;
+    border: 1px solid;
+    border-color: blue;
+    border-radius: 2%;
+    color: white;
+}
+
+/// slick-slider
+.slick-slider{
+    display: flex;
+    margin-right: 16px;
+    position: absolute;
+}
+
+.slick-list {
+    display: flex;
+    overflow: hidden;
+}
+
+.slick-track{
+    display: flex;
+}
+
+.slick-arrow{
+    position: absolute;
+    top: 50%;
+    color: darkred;
+}
+
+.slick-dots button {
+    font-size: 0;
+}
+.slick-dots li {
+    list-style: none;
+    position: static;
+}
+
+.slick-dots li.slick-active button{
+   background-color: transparent;
+   border: 1px solid #015367;
+}
+
+.slick-dots li button{
+    color: black;
+    border: 0;
+    outline: none;
+    background: #015367;
+    border-radius: 10px;
+    size: 12px;
+    width: 10px;
+    height: 10px;
+}
+
+.slick-dots li button:before {
+    font-size: 0;
+}
